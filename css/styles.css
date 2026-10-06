@@ -1,0 +1,220 @@
+:root{--paper:#f1ead8;--paper-2:#e9dfc8;--ink:#171512;--muted:#6c6558;--rule:#26221d;--accent:#7e211b;--stage:#222326}
+*{box-sizing:border-box}html{color-scheme:light}body{margin:0;min-width:320px;color:#f4efe6;background:radial-gradient(circle at 50% -10%,#545456 0,#323337 42%,#1f2023 100%);font-family:"Libre Franklin",Arial,sans-serif}button{font:inherit}
+.site-shell{width:min(1440px,100%);margin:0 auto;padding:12px 14px 16px}.viewer-header{width:min(1160px,100%);margin:0 auto 6px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}.viewer-brand h1{margin:0;font:900 clamp(1.85rem,3.6vw,3rem)/.95 "Playfair Display",Georgia,serif;letter-spacing:-.045em}.eyebrow{margin:0 0 3px;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;opacity:.68}.viewer-help{max-width:400px;margin:0 0 2px;color:#d5d0c8;font-size:.78rem;text-align:right}
+.book-stage{display:flex;justify-content:center;align-items:center;min-height:590px;padding:6px 0 8px;overflow:hidden}.book{margin:auto}.page{position:relative;overflow:hidden;color:var(--ink);background:var(--paper);border:1px solid rgba(0,0,0,.1)}.page:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:repeating-linear-gradient(0deg,rgba(92,70,35,.025) 0,rgba(92,70,35,.025) 1px,transparent 1px,transparent 4px),radial-gradient(circle at 18% 12%,rgba(138,108,57,.11),transparent 29%),radial-gradient(circle at 82% 85%,rgba(120,83,37,.08),transparent 34%);mix-blend-mode:multiply}.page-inner{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;padding:17px 20px 15px}
+.masthead{border-top:5px solid var(--ink);border-bottom:3px solid var(--ink);padding:5px 0 7px;text-align:center}.masthead>p{margin:0 0 1px;font-size:.52rem;font-weight:800;letter-spacing:.14em}.masthead h2{margin:0;font:900 2.45rem/.93 "Playfair Display",Georgia,serif;letter-spacing:-.055em}.masthead-rule{margin-top:6px;padding-top:4px;border-top:1px solid var(--ink);display:flex;justify-content:space-between;font-size:.5rem;font-weight:800;letter-spacing:.1em}.cover-lead{padding-top:8px;flex:1}.section-tag,.kicker,.note-label{color:var(--accent);font-size:.58rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.section-tag,.kicker{margin:0 0 4px}.cover-lead h3{margin:0;font:900 2.15rem/.91 "Playfair Display",Georgia,serif;letter-spacing:-.05em}.cover-lead h4{margin:4px 0 6px;font:800 1.02rem/1.05 "Playfair Display",Georgia,serif}.deck{margin:0 0 7px;font:600 .68rem/1.3 "Libre Franklin",sans-serif}.hero-figure,.feature-photo{margin:0}.hero-figure img{width:100%;height:140px;object-fit:cover;object-position:center 34%;border:1px solid #3e3931;filter:saturate(.78) contrast(1.02)}figcaption{margin-top:3px;color:#514b42;font:600 .61rem/1.28 "Libre Franklin",sans-serif}.cover-story{margin-top:6px}
+.running-head{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--ink);padding-bottom:4px;margin-bottom:8px;font-size:.52rem;font-weight:800;letter-spacing:.12em}.article-title{margin:0 0 6px;font:900 1.78rem/.95 "Playfair Display",Georgia,serif;letter-spacing:-.04em}.section-title{margin:0 0 7px;font:900 1.42rem/.98 "Playfair Display",Georgia,serif;letter-spacing:-.035em}.story-columns{text-align:justify;font:400 .74rem/1.39 Georgia,"Times New Roman",serif}.story-columns p{margin:0 0 5px;break-inside:avoid}.two-cols{column-count:2;column-gap:17px}.dropcap-first:first-letter{float:left;margin:2px 4px 0 0;font:900 2.3rem/.72 "Playfair Display",Georgia,serif}blockquote{margin:4px 0 6px;padding:5px 7px;border-left:4px solid var(--accent);font:700 .73rem/1.28 "Playfair Display",Georgia,serif;break-inside:avoid}.pullquote{margin:7px 0 0;padding:5px 7px;border-top:3px double var(--ink);border-bottom:1px solid var(--ink);text-align:center;font:800 .82rem/1.15 "Playfair Display",Georgia,serif}
+.integrated-note{margin-top:8px;border-top:1px solid #7d7466;border-bottom:1px solid #b3a996;border-left:5px solid var(--accent);padding:7px 8px;background:rgba(255,255,255,.16)}.side-note{display:grid;grid-template-columns:122px minmax(0,1fr);gap:9px;align-items:center}.side-note img{width:122px;height:68px;object-fit:cover;border:1px solid #767064}.side-note h3,.sports-note h3,.ad-copy h3{margin:2px 0 3px;font:800 .78rem/1.04 "Libre Franklin",Arial,sans-serif;letter-spacing:-.02em}.side-note p,.sports-note p,.ad-copy p{margin:0;font:400 .56rem/1.3 "Libre Franklin",Arial,sans-serif}
+.mid-photo{margin-top:7px}.compact-photo img{width:100%;height:112px;object-fit:cover;object-position:center 48%;filter:saturate(.76)}.defenders-photo{margin-top:8px}.defenders-photo img{width:100%;height:132px;object-fit:cover;object-position:center 43%;filter:saturate(.78)}
+.ad-morat{display:grid;grid-template-columns:130px 1fr;grid-template-rows:auto 1fr;gap:5px 9px}.ad-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:10px}.ad-head span{font-size:.48rem;letter-spacing:.15em}.ad-head strong{font:800 .64rem/1 "Libre Franklin",sans-serif;letter-spacing:.04em}.ad-morat img{width:130px;height:60px;object-fit:cover;border:1px solid #4d4840}
+.final-story{font-size:.71rem;line-height:1.36}.final-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:8px;margin-top:5px;align-items:stretch}.sports-note{display:grid;grid-template-columns:56px minmax(0,1fr);gap:7px;align-items:center;margin-top:0}.sports-note img{width:56px;height:84px;object-fit:cover;border:1px solid #5b554d}.sports-note h3{font-size:.72rem}.sports-note p{font-size:.49rem}.verdict-box{margin-top:0;border:2px solid var(--ink);padding:5px 7px;background:rgba(255,255,255,.14)}.verdict-box>span{display:block;margin-bottom:3px;color:var(--accent);font-size:.44rem;font-weight:800;letter-spacing:.15em;text-align:center}.verdict-box div{display:flex;justify-content:space-between;gap:8px;padding:3px 0;border-top:1px solid #665f54;font-size:.53rem}.verdict-box div:first-of-type{border-top:2px solid var(--ink)}.verdict-box b{font-family:"Playfair Display",Georgia,serif}.final-photo{margin-top:6px}.final-photo img{width:100%;height:100px;object-fit:cover;object-position:center 43%;filter:saturate(.76)}.closing-question{margin:4px 0 0;text-align:center;font:900 .9rem/1 "Playfair Display",Georgia,serif}
+.folio{margin-top:auto;padding-top:5px;border-top:1px solid #777064;display:flex;justify-content:space-between;gap:10px;color:#514b42;font-size:.45rem;font-weight:800;letter-spacing:.04em}.back-cover-inner{margin:9px;height:calc(100% - 18px);border:9px double var(--ink);justify-content:center;align-items:center;text-align:center;padding:28px}.back-kicker{margin:0 0 14px;color:var(--accent);font-size:.56rem;font-weight:800;letter-spacing:.18em}.back-cover h2{margin:0;font:900 3rem/.83 "Playfair Display",Georgia,serif;letter-spacing:-.07em}.back-rule{width:140px;margin:20px 0 12px;border-top:5px solid var(--ink);border-bottom:1px solid var(--ink);height:9px}.back-date{margin:0;font-size:.62rem;font-weight:800;letter-spacing:.16em}.back-copy{max-width:310px;margin:18px auto 0;font:600 .7rem/1.38 "Libre Franklin",sans-serif}.back-seal{margin-top:28px;width:76px;height:76px;display:grid;place-items:center;border:3px double var(--ink);border-radius:50%;font:900 1.35rem "Playfair Display",Georgia,serif}.back-instruction{margin:18px 0 0;color:var(--muted);font-size:.48rem}.back-cover .folio{position:absolute;left:28px;right:28px;bottom:19px}
+.controls{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:2px}.controls button{min-height:42px;padding:8px 16px;border:1px solid rgba(255,255,255,.22);border-radius:999px;color:#fff;background:#38393d;box-shadow:0 6px 18px rgba(0,0,0,.18);cursor:pointer}.controls button:hover:not(:disabled){background:#4b4c51}.controls button:disabled{opacity:.38;cursor:default}.page-status{min-width:66px;text-align:center;color:#ddd8ce;font-size:.76rem}.gesture-tip{margin:5px 0 0;text-align:center;color:#aaa59d;font-size:.64rem}.load-error{margin:7px 0 0;text-align:center;color:#ffe8aa;font-size:.78rem}
+@media(max-width:740px){.site-shell{padding:10px 6px 18px}.viewer-header{align-items:flex-start;padding:0 7px}.viewer-help{display:none}.viewer-brand h1{font-size:1.9rem}.book-stage{min-height:500px;padding:4px 0 7px}.controls button{padding-inline:12px;font-size:.8rem}.page-inner{padding:16px 16px 14px}.story-columns{font-size:.68rem;line-height:1.38}blockquote{font-size:.68rem}figcaption{font-size:.56rem}.integrated-note{padding:6px}.side-note{grid-template-columns:104px 1fr}.side-note img{width:104px;height:62px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* v4: mayor legibilidad, mejor aprovechamiento vertical e imágenes sin recorte */
+.story-columns{font-size:.96rem;line-height:1.31}
+.final-story{font-size:.96rem;line-height:1.31}
+.cover-story{font-size:.86rem;line-height:1.31}
+.story-columns p{margin-bottom:7px}
+blockquote{font-size:.91rem;line-height:1.27;padding:6px 8px;margin:5px 0 7px}
+.long-quote{font-size:.88rem}
+figcaption{font-size:.79rem;line-height:1.26;margin-top:4px}
+.page-inner{padding:15px 18px 13px}
+.running-head{margin-bottom:6px}
+.article-title{font-size:1.7rem;margin-bottom:5px}
+.section-title{font-size:1.38rem;margin-bottom:6px}
+.two-cols{column-gap:15px}
+.integrated-note{margin-top:7px;padding:7px 8px}
+.side-note{grid-template-columns:118px minmax(0,1fr);gap:9px}
+.side-note img{width:118px;height:64px;object-fit:contain;background:#e8dfcc}
+.side-note h3,.sports-note h3,.ad-copy h3{font-size:.86rem;line-height:1.05}
+.side-note p,.sports-note p,.ad-copy p{font-size:.64rem;line-height:1.28}
+.ad-morat{grid-template-columns:136px 1fr;gap:6px 10px}
+.ad-morat img{width:136px;height:58px;object-fit:contain;background:#e8dfcc}
+.ad-head strong{font-size:.7rem}.ad-head span{font-size:.54rem}
+.sports-note{grid-template-columns:66px minmax(0,1fr);gap:8px}
+.sports-note img{width:66px;height:96px;object-fit:contain;background:#e8dfcc}
+.sports-note h3{font-size:.82rem}.sports-note p{font-size:.59rem}
+.landscape-photo,.portrait-photo{margin-top:8px;text-align:center}
+.landscape-photo img{display:block;width:100%;height:126px;object-fit:contain;background:#e6ddca;filter:saturate(.78)}
+.portrait-photo img{display:block;width:100%;height:160px;object-fit:contain;background:#e6ddca;filter:saturate(.78)}
+.judges-photo img{height:174px}
+.hero-figure img{height:132px;object-fit:contain;background:#e6ddca}
+.verdict-box{padding:6px 8px}.verdict-box>span{font-size:.52rem}.verdict-box div{font-size:.62rem;padding:4px 0}
+.wide-verdict{margin-top:8px}
+.closing-question{font-size:1rem;margin-top:5px}
+.folio{font-size:.5rem}
+
+@media(max-width:740px){
+  .story-columns,.final-story{font-size:.78rem;line-height:1.34}
+  .cover-story{font-size:.72rem}
+  blockquote{font-size:.76rem}
+  figcaption{font-size:.66rem}
+  .page-inner{padding:14px 15px 12px}
+  .landscape-photo img{height:112px}
+  .portrait-photo img{height:145px}
+  .judges-photo img{height:155px}
+}
+
+/* v5: +20% tipografia y fotos verticales incrustadas en la cronica */
+.story-columns{font-size:1.15rem;line-height:1.25}
+.final-story{font-size:1.15rem;line-height:1.25}
+.cover-story{font-size:1.03rem;line-height:1.26}
+.story-columns p{margin-bottom:7px}
+blockquote{font-size:1.09rem;line-height:1.22;padding:6px 8px;margin:5px 0 7px}
+.long-quote{font-size:1.06rem;line-height:1.21}
+figcaption{font-size:.95rem;line-height:1.22;margin-top:4px}
+.side-note h3,.sports-note h3,.ad-copy h3{font-size:1.03rem;line-height:1.04}
+.side-note p,.sports-note p,.ad-copy p{font-size:.77rem;line-height:1.24}
+.ad-head strong{font-size:.84rem}.ad-head span{font-size:.65rem}
+.note-label{font-size:.70rem}
+.sports-note h3{font-size:1rem}.sports-note p{font-size:.73rem}
+.verdict-box>span{font-size:.58rem}.verdict-box div{font-size:.69rem}
+.story-with-portrait{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(150px,.72fr);gap:12px;align-items:start;margin-top:2px}
+.story-with-portrait .single-col{column-count:1;min-width:0}
+.portrait-inline{margin:0;min-width:0}
+.portrait-inline img{display:block;width:100%;height:300px;object-fit:contain;object-position:center top;background:#e8dfcc;border:1px solid #70695d;filter:saturate(.78)}
+.story-continuation{margin-top:9px}
+.verdict-layout{grid-template-columns:minmax(0,1.18fr) minmax(158px,.82fr)}
+.judges-inline img{height:315px}
+@media(max-width:740px){
+  .story-columns,.final-story{font-size:.82rem;line-height:1.31}
+  .cover-story{font-size:.76rem}
+  blockquote{font-size:.80rem}
+  .long-quote{font-size:.78rem}
+  figcaption{font-size:.68rem}
+  .side-note h3,.sports-note h3,.ad-copy h3{font-size:.80rem}
+  .side-note p,.sports-note p,.ad-copy p{font-size:.61rem}
+  .story-with-portrait{grid-template-columns:minmax(0,1fr) 38%;gap:8px}
+  .portrait-inline img,.judges-inline img{height:235px}
+}
+
+/* v6: +10% tipografia general, contenido redistribuido y ajuste de imagenes */
+.page-inner{padding:14px 17px 12px}
+.masthead>p{font-size:.63rem}.masthead h2{font-size:2.68rem}.masthead-rule{font-size:.61rem}
+.section-tag,.kicker,.note-label{font-size:.77rem}
+.cover-lead h3{font-size:2.36rem}.cover-lead h4{font-size:1.18rem}.deck{font-size:.82rem;line-height:1.28}
+.running-head{font-size:.63rem}.article-title{font-size:1.87rem}.section-title{font-size:1.56rem}
+.story-columns,.final-story{font-size:1.265rem;line-height:1.22}
+.cover-story{font-size:1.13rem;line-height:1.23;column-count:1}
+.story-columns p{margin-bottom:6px}
+.dropcap-first:first-letter{font-size:2.55rem}
+blockquote{font-size:1.20rem;line-height:1.19;padding:6px 8px;margin:5px 0 7px}
+.long-quote{font-size:1.16rem;line-height:1.18}
+figcaption{font-size:1.045rem;line-height:1.18;margin-top:5px}
+.folio{font-size:.61rem}
+.integrated-note{padding:7px 8px;margin-top:7px}
+.side-note h3,.sports-note h3,.ad-copy h3{font-size:1.13rem;line-height:1.03}
+.side-note p,.sports-note p,.ad-copy p{font-size:.85rem;line-height:1.2}
+.ad-head strong{font-size:.92rem}.ad-head span{font-size:.72rem}
+.note-label{font-size:.77rem}.sports-note h3{font-size:1.10rem}.sports-note p{font-size:.80rem}
+.verdict-box>span{font-size:.64rem}.verdict-box div{font-size:.76rem;padding:4px 0}
+.closing-question{font-size:1.10rem}
+.two-cols{column-gap:14px}
+
+/* La foto de portada conserva su relación 4:3 sin dejar un marco vacío ni recortarse. */
+.hero-figure{width:68%;margin:7px auto 0}
+.hero-figure img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;object-position:center;border:1px solid #3e3931;background:transparent}
+.hero-figure figcaption{text-align:left}
+
+/* Fotografías horizontales: caja basada en su relación real, sin crop. */
+.landscape-photo{margin-top:7px;text-align:center}
+.landscape-photo img,.compact-landscape img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:contain;background:transparent;filter:saturate(.78)}
+.compact-landscape{width:76%;margin-left:auto;margin-right:auto}
+
+/* Fotografías verticales integradas con texto al costado. */
+.story-with-portrait{grid-template-columns:minmax(0,1.38fr) minmax(142px,.62fr);gap:10px;align-items:start}
+.portrait-inline img{width:100%;height:auto;aspect-ratio:3/4;object-fit:contain;object-position:center top;background:transparent}
+.verdict-layout{grid-template-columns:minmax(0,1.30fr) minmax(150px,.70fr)}
+.judges-inline img{height:auto;aspect-ratio:3/4}
+.story-continuation{margin-top:8px}
+
+/* Los módulos editoriales no deben forzar el contenido fuera del papel. */
+.side-note{grid-template-columns:112px minmax(0,1fr);gap:8px}
+.side-note img{width:112px;height:auto;aspect-ratio:2/1;object-fit:contain;background:transparent}
+.ad-morat{grid-template-columns:125px 1fr;gap:5px 9px}
+.ad-morat img{width:125px;height:auto;aspect-ratio:919/334;object-fit:contain;background:transparent}
+.sports-note{grid-template-columns:58px minmax(0,1fr);gap:8px}
+.sports-note img{width:58px;height:auto;aspect-ratio:415/739;object-fit:contain;background:transparent}
+
+@media(max-width:740px){
+  .page-inner{padding:13px 14px 11px}
+  .story-columns,.final-story{font-size:.90rem;line-height:1.28}
+  .cover-story{font-size:.84rem;line-height:1.28}
+  blockquote{font-size:.88rem}.long-quote{font-size:.86rem}
+  figcaption{font-size:.75rem}
+  .hero-figure{width:76%}
+  .story-with-portrait{grid-template-columns:minmax(0,1fr) 36%;gap:7px}
+  .side-note h3,.sports-note h3,.ad-copy h3{font-size:.88rem}
+  .side-note p,.sports-note p,.ad-copy p{font-size:.66rem}
+}
+
+
+/* v8: formato mas apaisado para evitar desbordes inferiores sin achicar la tipografia */
+.site-shell{width:min(1660px,100%)}
+.viewer-header{width:min(1420px,100%)}
+.book-stage{min-height:590px}
+.page-inner{padding:13px 17px 11px}
+.running-head{margin-bottom:5px}
+.section-tag,.kicker{margin-bottom:3px}
+.article-title{margin-bottom:4px}
+.section-title{margin-bottom:5px}
+.story-columns p{margin-bottom:5px}
+blockquote{margin:4px 0 6px}
+.integrated-note{margin-top:6px}
+.story-continuation{margin-top:6px}
+.hero-figure{width:64%;margin-top:6px}
+/* En fotos documentales el contenedor adopta la imagen completa, sin crop. */
+.hero-figure img,.landscape-photo img,.compact-landscape img,.portrait-inline img,.judges-inline img{object-fit:contain;max-width:100%}
+.folio{padding-top:4px}
+@media(max-width:1450px){.viewer-header{width:min(96vw,1320px)}}
+@media(max-width:740px){.site-shell{width:100%}.viewer-header{width:100%}}
+
+/* =========================
+   AJUSTES PUNTUALES
+   ========================= */
+
+/* PÁGINA 1 */
+.page-1 .cover-image {
+    max-height: 320px;
+    object-fit: contain;
+}
+
+.page-1 .cover-photo {
+    margin-bottom: 8px;
+}
+
+.page-1 .story-columns {
+    margin-top: 6px;
+}
+
+
+/* PÁGINA 4 */
+.page-4 figure {
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.page-4 figure img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+}
+
+.page-4 figcaption {
+    margin-top: 4px;
+}
+
+
+/* PÁGINA 6 */
+.page-6 .story-columns {
+    column-count: 2;
+    column-gap: 22px;
+    width: 100%;
+}
+
+.page-6 .story-layout {
+    display: block;
+}
