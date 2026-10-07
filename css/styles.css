@@ -523,3 +523,111 @@ figcaption{font-size:.9405rem;line-height:1.20}
   .page-status{font-size:.86rem}
   .gesture-tip{margin-top:8px;font-size:.72rem}
 }
+
+/* =========================================================
+   v16 - Geometria mobile determinista entre dispositivos
+   Desktop queda intacto. Mobile usa una hoja interna fija
+   520x730 y evita text autosizing / fuentes serif variables.
+   ========================================================= */
+html{
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+}
+
+/* Pie de foto -12.5% respecto de v15. */
+figcaption{
+  font-size:.823rem;
+  line-height:1.20;
+}
+
+@media (max-width:740px){
+  /* Importante: la maquetacion interna NO depende del ancho fisico
+     del telefono. Solo el wrapper exterior se escala. */
+  .page-inner{
+    padding:13px 17px 11px !important;
+  }
+
+  /* Serif web consistente: evita diferencias de metricas entre
+     Samsung/Pixel/otros Android cuando Georgia no existe localmente. */
+  .story-columns,
+  .final-story,
+  .cover-story,
+  .flow-continuation .flow-text,
+  .story-continuation{
+    font-family:"Noto Serif", Georgia, serif !important;
+  }
+
+  /* Misma geometria editorial en todos los moviles. */
+  .story-columns,.final-story{
+    font-size:1.1385rem !important;
+    line-height:1.24 !important;
+  }
+  .cover-story{
+    font-size:1.017rem !important;
+    line-height:1.25 !important;
+  }
+  blockquote{
+    font-size:1.08rem !important;
+    line-height:1.20 !important;
+  }
+  .long-quote{
+    font-size:1.044rem !important;
+    line-height:1.20 !important;
+  }
+  figcaption{
+    font-size:.823rem !important;
+    line-height:1.20 !important;
+  }
+
+  /* Neutraliza reglas responsive antiguas que cambiaban el layout
+     interior segun el telefono. */
+  .hero-figure{width:64% !important}
+  .story-with-portrait{
+    grid-template-columns:minmax(0,1.38fr) minmax(142px,.62fr) !important;
+    gap:10px !important;
+  }
+  .portrait-inline img{
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:3/4 !important;
+  }
+  .side-note{
+    grid-template-columns:112px minmax(0,1fr) !important;
+    gap:8px !important;
+  }
+  .side-note img{
+    width:112px !important;
+    height:auto !important;
+    aspect-ratio:2/1 !important;
+  }
+  .ad-morat{
+    grid-template-columns:125px 1fr !important;
+    gap:5px 9px !important;
+  }
+  .ad-morat img{
+    width:125px !important;
+    height:auto !important;
+    aspect-ratio:919/334 !important;
+  }
+  .sports-note{
+    grid-template-columns:58px minmax(0,1fr) !important;
+    gap:8px !important;
+  }
+  .sports-note img{
+    width:58px !important;
+    height:auto !important;
+    aspect-ratio:415/739 !important;
+  }
+
+  .side-note h3,.sports-note h3,.ad-copy h3{font-size:1.017rem !important}
+  .side-note p,.sports-note p,.ad-copy p{font-size:.765rem !important}
+  .ad-head strong{font-size:.828rem !important}
+  .ad-head span{font-size:.648rem !important}
+  .note-label{font-size:.693rem !important}
+  .sports-note h3{font-size:.99rem !important}
+  .sports-note p{font-size:.72rem !important}
+  .verdict-box>span{font-size:.576rem !important}
+  .verdict-box div{font-size:.684rem !important}
+  .closing-question{font-size:.99rem !important}
+  .dropcap-first:first-letter{font-size:2.295rem !important}
+}

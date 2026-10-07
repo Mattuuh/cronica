@@ -1,30 +1,14 @@
-# La Cronista DPP - v12
+# La Cronista DPP - v16
 
-Version para GitHub Pages con ancho de pagina original (520 x 730) y paginacion continua.
+Versión estática lista para GitHub Pages / Cloudflare Pages.
 
-Cambios principales:
-- Si una hoja desborda, el contenido excedente se inserta al comienzo de la hoja siguiente.
-- No se generan encabezados "CONTINUA LA CRONICA" ni paginas de continuacion aisladas.
-- Los parrafos pueden dividirse entre hojas sin reiniciar la capitular.
-- Las imagenes y bloques editoriales se mueven completos cuando no entran.
-- La redistribucion se propaga de una hoja a la siguiente hasta que todo entra.
-- La contratapa permanece al final.
-- Cache busting: `v=20261006-10`.
+## Cambios v16
 
-## Version 12
-- La crónica usa una sola columna por página para mejorar la lectura.
-- Las continuaciones automáticas también ocupan todo el ancho útil.
-- Se mantiene la paginación automática cuando el contenido supera el alto disponible.
-
-
-## v14-mobile
-
-- Desktop conserva la composicion de v12.
-- En pantallas de hasta 740 px, PageFlip usa una hoja fija de 520 x 730 px.
-- La hoja completa se escala proporcionalmente mediante `.book-scale`; el texto no se remaqueta en mobile.
-- Los controles quedan fuera del escalado para mantener objetivos tactiles grandes.
-- Cache busting: `20261006-14`.
-
-
-## v15
-Desktop conserva StPageFlip. En mobile se usan paginas fijas 520x730 escaladas proporcionalmente, con botones, swipe y transicion de hoja, evitando reflow y recortes.
+- Desktop conserva el comportamiento visual de la v15.
+- Mobile mantiene una maqueta interna fija de 520 x 730 y escala el conjunto.
+- La paginación espera a que las imágenes y las webfonts estén realmente cargadas.
+- Se usa Noto Serif únicamente para el cuerpo editorial en mobile, evitando diferencias de métricas entre dispositivos Android.
+- Se neutraliza el text autosizing del navegador.
+- Se fijan en mobile las mismas proporciones de imágenes y módulos editoriales en todos los dispositivos.
+- Los pies de foto se redujeron aproximadamente 12.5%.
+- Cache busting: `20261006-16`.

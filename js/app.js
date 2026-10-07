@@ -388,6 +388,34 @@
     });
   };
 
-  if (document.readyState === 'complete') init();
-  else window.addEventListener('load', init, { once: true });
+  // v16: paginar recien cuando imagenes Y webfonts hayan terminado de cargar.
+  // Esto evita que dos telefonos calculen alturas distintas por usar una
+  // fuente de fallback durante la medicion inicial.
+  const startWhenGeometryIsStable = async () => {
+    if (document.readyState !== 'complete') {
+      await new Promise((resolve) => window.addEventListener('load', resolve, { once: true }));
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      try {
+        await document.fonts.ready;
+        // Forzar especificamente las familias usadas por la maqueta.
+        await Promise.all([
+          document.fonts.load('400 18px "Noto Serif"'),
+          document.fonts.load('700 18px "Noto Serif"'),
+          document.fonts.load('900 24px "Playfair Display"'),
+          document.fonts.load('600 14px "Libre Franklin"')
+        ]);
+      } catch (_) {
+        // Si una fuente externa falla, continuamos con los fallbacks.
+      }
+    }
+
+    // Un frame adicional garantiza que el navegador haya aplicado las
+    // metricas finales antes de medir scrollHeight/clientHeight.
+    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    init();
+  };
+
+  startWhenGeometryIsStable();
 })();
