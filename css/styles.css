@@ -631,3 +631,138 @@ figcaption{
   .closing-question{font-size:.99rem !important}
   .dropcap-first:first-letter{font-size:2.295rem !important}
 }
+
+/* =========================================================
+   v17 - Mobile editorial lock
+   La hoja interna mantiene exactamente la misma geometria
+   antes y despues de paginar. Solo el wrapper exterior escala.
+   ========================================================= */
+html{
+  -webkit-text-size-adjust:none !important;
+  text-size-adjust:none !important;
+}
+
+/* Pie de foto ~12.5% menor que v16. */
+figcaption{
+  font-size:.72rem !important;
+  line-height:1.16 !important;
+}
+
+@media (max-width:740px){
+  body.mobile-editorial-lock .page,
+  body.mobile-editorial-lock .page-inner{
+    font-synthesis:none;
+  }
+
+  body.mobile-editorial-lock .page-inner{
+    width:520px !important;
+    height:730px !important;
+    padding:13px 17px 11px !important;
+  }
+
+  /* Congelar todas las metricas del cuerpo editorial. */
+  body.mobile-editorial-lock .story-columns,
+  body.mobile-editorial-lock .final-story,
+  body.mobile-editorial-lock .cover-story,
+  body.mobile-editorial-lock .flow-continuation .flow-text,
+  body.mobile-editorial-lock .story-continuation{
+    font-family:"Noto Serif", Georgia, serif !important;
+    column-count:1 !important;
+    column-gap:0 !important;
+    width:100% !important;
+    max-width:none !important;
+  }
+
+  body.mobile-editorial-lock .story-columns,
+  body.mobile-editorial-lock .final-story{
+    font-size:1.1385rem !important;
+    line-height:1.24 !important;
+  }
+  body.mobile-editorial-lock .cover-story{
+    font-size:1.017rem !important;
+    line-height:1.25 !important;
+  }
+  body.mobile-editorial-lock blockquote{
+    font-size:1.08rem !important;
+    line-height:1.20 !important;
+  }
+  body.mobile-editorial-lock .long-quote{
+    font-size:1.044rem !important;
+    line-height:1.20 !important;
+  }
+  body.mobile-editorial-lock figcaption{
+    font-size:.72rem !important;
+    line-height:1.16 !important;
+  }
+
+  /* El veredicto debe conservar texto + foto en la misma hoja.
+     Se le reserva un poco mas de ancho al texto y se compacta
+     apenas este bloque, sin afectar el resto de la cronica. */
+  body.mobile-editorial-lock .verdict-layout{
+    display:grid !important;
+    grid-template-columns:minmax(0,1.48fr) minmax(132px,.52fr) !important;
+    gap:8px !important;
+    align-items:start !important;
+  }
+  body.mobile-editorial-lock .verdict-page .final-story{
+    font-size:1.04rem !important;
+    line-height:1.20 !important;
+  }
+  body.mobile-editorial-lock .judges-inline{
+    margin:0 !important;
+  }
+  body.mobile-editorial-lock .judges-inline img{
+    display:block !important;
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:3/4 !important;
+    object-fit:contain !important;
+    object-position:center top !important;
+  }
+  body.mobile-editorial-lock .verdict-box{
+    margin-top:5px !important;
+  }
+  body.mobile-editorial-lock .closing-question{
+    margin-top:4px !important;
+  }
+
+  /* Mantener identicos los modulos editoriales entre telefonos. */
+  body.mobile-editorial-lock .hero-figure{width:64% !important}
+  body.mobile-editorial-lock .story-with-portrait:not(.verdict-layout){
+    grid-template-columns:minmax(0,1.38fr) minmax(142px,.62fr) !important;
+    gap:10px !important;
+  }
+  body.mobile-editorial-lock .portrait-inline img{
+    width:100% !important;
+    height:auto !important;
+    aspect-ratio:3/4 !important;
+    object-fit:contain !important;
+  }
+  body.mobile-editorial-lock .side-note{
+    grid-template-columns:112px minmax(0,1fr) !important;
+    gap:8px !important;
+  }
+  body.mobile-editorial-lock .side-note img{
+    width:112px !important;
+    height:auto !important;
+    aspect-ratio:2/1 !important;
+  }
+  body.mobile-editorial-lock .ad-morat{
+    grid-template-columns:125px 1fr !important;
+    gap:5px 9px !important;
+  }
+  body.mobile-editorial-lock .sports-note{
+    grid-template-columns:58px minmax(0,1fr) !important;
+    gap:8px !important;
+  }
+
+  /* El escenario cambia de tamano; la hoja, no. */
+  body.mobile-editorial-lock .book-viewport{
+    width:100% !important;
+    overflow:hidden !important;
+  }
+  body.mobile-editorial-lock .book-scale{
+    width:520px !important;
+    height:730px !important;
+  }
+}

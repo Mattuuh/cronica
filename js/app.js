@@ -252,11 +252,16 @@
   };
 
   const init = () => {
-    const pages = paginateOverflow();
-    total.textContent = String(pages.length);
-
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.matchMedia('(max-width: 740px)').matches;
+
+    // v17: en mobile congelamos primero la geometria editorial interna.
+    // La paginacion se calcula SIEMPRE sobre una hoja logica de 520x730
+    // con las mismas metricas, y recien despues se escala visualmente.
+    document.body.classList.toggle('mobile-editorial-lock', isMobile);
+
+    const pages = paginateOverflow();
+    total.textContent = String(pages.length);
     const viewport = document.querySelector('.book-viewport');
     const scaleWrapper = document.querySelector('.book-scale');
 

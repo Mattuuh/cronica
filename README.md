@@ -1,14 +1,14 @@
-# La Cronista DPP - v16
+# La Cronista DPP - v17
 
-Versión estática lista para GitHub Pages / Cloudflare Pages.
+Version preparada para GitHub Pages.
 
-## Cambios v16
+Cambios de esta version:
+- Desktop conserva el comportamiento estable con StPageFlip.
+- Mobile congela la geometria editorial interna en 520x730 antes de paginar.
+- El escalado mobile se aplica solo al wrapper exterior, evitando cambios de layout entre dispositivos.
+- Se neutraliza el text autosizing del navegador en mobile.
+- Se ajusta especificamente la pagina del veredicto para mantener texto e imagen lateral en la misma hoja siempre que entre en la geometria fija.
+- Los pies de foto se redujeron aproximadamente un 12.5% respecto de v16.
+- Cache busting actualizado a 20261007-17.
 
-- Desktop conserva el comportamiento visual de la v15.
-- Mobile mantiene una maqueta interna fija de 520 x 730 y escala el conjunto.
-- La paginación espera a que las imágenes y las webfonts estén realmente cargadas.
-- Se usa Noto Serif únicamente para el cuerpo editorial en mobile, evitando diferencias de métricas entre dispositivos Android.
-- Se neutraliza el text autosizing del navegador.
-- Se fijan en mobile las mismas proporciones de imágenes y módulos editoriales en todos los dispositivos.
-- Los pies de foto se redujeron aproximadamente 12.5%.
-- Cache busting: `20261006-16`.
+Publicacion: subir el contenido de esta carpeta a la raiz del repositorio de GitHub Pages.
