@@ -1,4 +1,4 @@
-# La Cronista DPP - v10
+# La Cronista DPP - v12
 
 Version para GitHub Pages con ancho de pagina original (520 x 730) y paginacion continua.
 
