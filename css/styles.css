@@ -315,7 +315,7 @@ figcaption{font-size:.9405rem;line-height:1.20}
 }
 
 /* =========================================================
-   v13-mobile - misma maqueta 520x730, escalada visualmente
+   v14-mobile - misma maqueta 520x730, escalada visualmente
    SOLO en mobile. Desktop conserva el comportamiento v12.
    ========================================================= */
 .book-viewport{
@@ -373,6 +373,142 @@ figcaption{font-size:.9405rem;line-height:1.20}
   }
 
   /* Los botones quedan FUERA del scale y conservan buen tamano tactil. */
+  .controls{
+    position:relative;
+    z-index:20;
+    margin-top:18px;
+    gap:10px;
+  }
+  .controls button{
+    min-height:48px;
+    padding:10px 18px;
+    font-size:.92rem;
+  }
+  .page-status{font-size:.86rem}
+  .gesture-tip{margin-top:8px;font-size:.72rem}
+}
+
+/* =========================================================
+   v14 - restaurar visor desktop; escalado fijo SOLO mobile
+   ========================================================= */
+@media (min-width: 741px) {
+  .book-viewport {
+    width: 100%;
+    height: auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .book-scale {
+    width: 100%;
+    height: auto;
+    flex: 1 1 auto;
+    transform: none !important;
+    margin: 0;
+    position: static;
+  }
+
+  .book {
+    width: auto !important;
+    height: auto !important;
+    max-width: none;
+    max-height: none;
+    margin: auto !important;
+  }
+}
+
+
+/* =========================================================
+   v15 - Mobile estable sin remaquetar las hojas
+   Desktop conserva StPageFlip. En mobile, cada hoja mantiene
+   520x730 internamente y el conjunto se escala visualmente.
+   ========================================================= */
+@media (max-width:740px){
+  /* Neutralizar cambios tipograficos mobile: la hoja se escala completa. */
+  .story-columns,.final-story{font-size:1.1385rem;line-height:1.24}
+  .cover-story{font-size:1.017rem;line-height:1.25}
+  blockquote{font-size:1.08rem;line-height:1.20}
+  .long-quote{font-size:1.044rem;line-height:1.20}
+  figcaption{font-size:.9405rem;line-height:1.20}
+  .side-note h3,.sports-note h3,.ad-copy h3{font-size:1.017rem}
+  .side-note p,.sports-note p,.ad-copy p{font-size:.765rem}
+  .ad-head strong{font-size:.828rem}
+  .ad-head span{font-size:.648rem}
+  .note-label{font-size:.693rem}
+  .sports-note h3{font-size:.99rem}
+  .sports-note p{font-size:.72rem}
+  .verdict-box>span{font-size:.576rem}
+  .verdict-box div{font-size:.684rem}
+  .closing-question{font-size:.99rem}
+  .dropcap-first:first-letter{font-size:2.295rem}
+
+  .book-stage{
+    display:block;
+    min-height:0;
+    padding:4px 0 8px;
+    overflow:hidden;
+  }
+  .book-viewport{
+    position:relative;
+    display:block;
+    width:100%;
+    margin:0 auto;
+    overflow:hidden;
+  }
+  .book-scale{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:520px;
+    height:730px;
+    margin:0;
+    transform-origin:top center;
+    flex:none;
+  }
+  .book.mobile-book{
+    position:relative;
+    width:520px !important;
+    height:730px !important;
+    margin:0 !important;
+    perspective:1800px;
+    transform-style:preserve-3d;
+  }
+  .book.mobile-book .page{
+    position:absolute !important;
+    inset:0 !important;
+    display:block;
+    width:520px !important;
+    height:730px !important;
+    margin:0 !important;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
+    transform-origin:left center;
+    transform:rotateY(0deg);
+    backface-visibility:hidden;
+    transition:transform .52s ease, opacity .2s ease;
+  }
+  .book.mobile-book .page.mobile-active{
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
+    z-index:3;
+  }
+  .book.mobile-book .page.mobile-turn-next{
+    visibility:visible;
+    opacity:1;
+    z-index:4;
+    transform:rotateY(-92deg);
+  }
+  .book.mobile-book .page.mobile-turn-prev{
+    visibility:visible;
+    opacity:1;
+    z-index:4;
+    transform-origin:right center;
+    transform:rotateY(92deg);
+  }
   .controls{
     position:relative;
     z-index:20;

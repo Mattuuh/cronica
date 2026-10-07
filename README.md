@@ -17,10 +17,14 @@ Cambios principales:
 - Se mantiene la paginación automática cuando el contenido supera el alto disponible.
 
 
-## v13-mobile
+## v14-mobile
 
 - Desktop conserva la composicion de v12.
 - En pantallas de hasta 740 px, PageFlip usa una hoja fija de 520 x 730 px.
 - La hoja completa se escala proporcionalmente mediante `.book-scale`; el texto no se remaqueta en mobile.
 - Los controles quedan fuera del escalado para mantener objetivos tactiles grandes.
-- Cache busting: `20261006-13-mobile`.
+- Cache busting: `20261006-14`.
+
+
+## v15
+Desktop conserva StPageFlip. En mobile se usan paginas fijas 520x730 escaladas proporcionalmente, con botones, swipe y transicion de hoja, evitando reflow y recortes.

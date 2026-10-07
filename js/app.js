@@ -255,82 +255,10 @@
     const pages = paginateOverflow();
     total.textContent = String(pages.length);
 
-    if (!window.St || !window.St.PageFlip) {
-      staticFallback(pages);
-      return;
-    }
-
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isMobile = window.matchMedia('(max-width: 740px)').matches;
-
-    // En desktop se conserva exactamente el comportamiento de la v12.
-    // En mobile la hoja mantiene SIEMPRE su maqueta interna de 520x730.
-    // El ajuste al ancho del telefono se hace escalando el wrapper exterior,
-    // no remaquetando el texto dentro de PageFlip.
-    const pageFlipOptions = isMobile
-      ? {
-          width: PAGE_W,
-          height: PAGE_H,
-          size: 'fixed',
-          maxShadowOpacity: .5,
-          showCover: true,
-          mobileScrollSupport: true,
-          usePortrait: true,
-          drawShadow: true,
-          flippingTime: reducedMotion ? 120 : 920,
-          autoSize: false,
-          clickEventForward: true
-        }
-      : {
-          width: PAGE_W,
-          height: PAGE_H,
-          size: 'stretch',
-          minWidth: 300,
-          maxWidth: PAGE_W,
-          minHeight: 421,
-          maxHeight: PAGE_H,
-          maxShadowOpacity: .5,
-          showCover: true,
-          mobileScrollSupport: true,
-          usePortrait: true,
-          drawShadow: true,
-          flippingTime: reducedMotion ? 120 : 920,
-          autoSize: true,
-          clickEventForward: true
-        };
-
-    const pageFlip = new St.PageFlip(book, pageFlipOptions);
-    pageFlip.loadFromHTML(pages);
-
     const viewport = document.querySelector('.book-viewport');
     const scaleWrapper = document.querySelector('.book-scale');
-
-    const scaleBookForMobile = () => {
-      if (!viewport || !scaleWrapper) return;
-
-      if (!window.matchMedia('(max-width: 740px)').matches) {
-        scaleWrapper.style.transform = 'none';
-        viewport.style.height = '';
-        viewport.style.width = '';
-        return;
-      }
-
-      // Dejamos un pequeno margen lateral para que la hoja no toque el borde.
-      const horizontalGutter = 12;
-      const availableWidth = Math.max(280, window.innerWidth - horizontalGutter);
-      const scale = Math.min(1, availableWidth / PAGE_W);
-
-      scaleWrapper.style.transformOrigin = 'top center';
-      scaleWrapper.style.transform = `scale(${scale})`;
-
-      // El transform no modifica el flujo del documento. Por eso el viewport
-      // recibe explicitamente el alto visual final y los controles quedan
-      // inmediatamente debajo de la hoja escalada.
-      viewport.style.height = `${Math.ceil(PAGE_H * scale)}px`;
-      viewport.style.width = '100%';
-    };
-
-    scaleBookForMobile();
 
     const updateStatus = (index) => {
       const i = Math.max(0, Math.min(index, pages.length - 1));
@@ -339,14 +267,119 @@
       next.disabled = i >= pages.length - 1;
     };
 
+    if (isMobile) {
+      // MOBILE: no dejamos que PageFlip cambie la geometria de la hoja.
+      // Mostramos las mismas paginas 520x730 y escalamos el wrapper completo.
+      book.classList.add('mobile-book');
+
+      let mobileIndex = 0;
+      let animating = false;
+      let touchStartX = null;
+      let touchStartY = null;
+
+      pages.forEach((page, i) => {
+        page.classList.toggle('mobile-active', i === 0);
+        page.setAttribute('aria-hidden', i === 0 ? 'false' : 'true');
+      });
+
+      const scaleMobileBook = () => {
+        if (!viewport || !scaleWrapper) return;
+        const gutter = 24;
+        const available = Math.max(280, window.innerWidth - gutter);
+        const scale = Math.min(1, available / PAGE_W);
+        scaleWrapper.style.transform = `translateX(-50%) scale(${scale})`;
+        scaleWrapper.style.left = '50%';
+        viewport.style.height = `${Math.ceil(PAGE_H * scale)}px`;
+      };
+
+      const showMobilePage = (nextIndex, direction) => {
+        if (animating || nextIndex < 0 || nextIndex >= pages.length || nextIndex === mobileIndex) return;
+        animating = true;
+
+        const oldPage = pages[mobileIndex];
+        const newPage = pages[nextIndex];
+        const turnClass = direction === 'prev' ? 'mobile-turn-prev' : 'mobile-turn-next';
+
+        newPage.classList.add('mobile-active');
+        newPage.setAttribute('aria-hidden', 'false');
+        oldPage.classList.add(turnClass);
+
+        const finish = () => {
+          oldPage.classList.remove('mobile-active', 'mobile-turn-next', 'mobile-turn-prev');
+          oldPage.setAttribute('aria-hidden', 'true');
+          mobileIndex = nextIndex;
+          updateStatus(mobileIndex);
+          animating = false;
+        };
+
+        if (reducedMotion) finish();
+        else window.setTimeout(finish, 530);
+      };
+
+      prev.addEventListener('click', () => showMobilePage(mobileIndex - 1, 'prev'));
+      next.addEventListener('click', () => showMobilePage(mobileIndex + 1, 'next'));
+
+      book.addEventListener('touchstart', (event) => {
+        const t = event.touches[0];
+        touchStartX = t.clientX;
+        touchStartY = t.clientY;
+      }, { passive: true });
+
+      book.addEventListener('touchend', (event) => {
+        if (touchStartX == null || touchStartY == null) return;
+        const t = event.changedTouches[0];
+        const dx = t.clientX - touchStartX;
+        const dy = t.clientY - touchStartY;
+        touchStartX = touchStartY = null;
+        if (Math.abs(dx) < 45 || Math.abs(dx) <= Math.abs(dy)) return;
+        if (dx < 0) showMobilePage(mobileIndex + 1, 'next');
+        else showMobilePage(mobileIndex - 1, 'prev');
+      }, { passive: true });
+
+      document.addEventListener('keydown', (event) => {
+        const target = event.target;
+        if (target && /INPUT|TEXTAREA|SELECT/.test(target.tagName)) return;
+        if (event.key === 'ArrowLeft') showMobilePage(mobileIndex - 1, 'prev');
+        if (event.key === 'ArrowRight') showMobilePage(mobileIndex + 1, 'next');
+      });
+
+      window.addEventListener('resize', scaleMobileBook, { passive: true });
+      window.addEventListener('orientationchange', () => window.setTimeout(scaleMobileBook, 80), { passive: true });
+
+      scaleMobileBook();
+      updateStatus(0);
+      return;
+    }
+
+    // DESKTOP: conservar exactamente el visor PageFlip de la version estable.
+    if (!window.St || !window.St.PageFlip) {
+      staticFallback(pages);
+      return;
+    }
+
+    const pageFlip = new St.PageFlip(book, {
+      width: PAGE_W,
+      height: PAGE_H,
+      size: 'stretch',
+      minWidth: 300,
+      maxWidth: PAGE_W,
+      minHeight: 421,
+      maxHeight: PAGE_H,
+      maxShadowOpacity: .5,
+      showCover: true,
+      mobileScrollSupport: true,
+      usePortrait: true,
+      drawShadow: true,
+      flippingTime: reducedMotion ? 120 : 920,
+      autoSize: true,
+      clickEventForward: true
+    });
+
+    pageFlip.loadFromHTML(pages);
     pageFlip.on('init', (event) => updateStatus(event.data.page));
     pageFlip.on('flip', (event) => updateStatus(event.data));
     prev.addEventListener('click', () => pageFlip.flipPrev());
     next.addEventListener('click', () => pageFlip.flipNext());
-    window.addEventListener('resize', scaleBookForMobile, { passive: true });
-    window.addEventListener('orientationchange', () => {
-      window.setTimeout(scaleBookForMobile, 80);
-    }, { passive: true });
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target && /INPUT|TEXTAREA|SELECT/.test(target.tagName)) return;
