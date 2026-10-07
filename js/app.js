@@ -261,25 +261,76 @@
     }
 
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const pageFlip = new St.PageFlip(book, {
-      width: PAGE_W,
-      height: PAGE_H,
-      size: 'stretch',
-      minWidth: 300,
-      maxWidth: PAGE_W,
-      minHeight: 421,
-      maxHeight: PAGE_H,
-      maxShadowOpacity: .5,
-      showCover: true,
-      mobileScrollSupport: true,
-      usePortrait: true,
-      drawShadow: true,
-      flippingTime: reducedMotion ? 120 : 920,
-      autoSize: true,
-      clickEventForward: true
-    });
+    const isMobile = window.matchMedia('(max-width: 740px)').matches;
 
+    // En desktop se conserva exactamente el comportamiento de la v12.
+    // En mobile la hoja mantiene SIEMPRE su maqueta interna de 520x730.
+    // El ajuste al ancho del telefono se hace escalando el wrapper exterior,
+    // no remaquetando el texto dentro de PageFlip.
+    const pageFlipOptions = isMobile
+      ? {
+          width: PAGE_W,
+          height: PAGE_H,
+          size: 'fixed',
+          maxShadowOpacity: .5,
+          showCover: true,
+          mobileScrollSupport: true,
+          usePortrait: true,
+          drawShadow: true,
+          flippingTime: reducedMotion ? 120 : 920,
+          autoSize: false,
+          clickEventForward: true
+        }
+      : {
+          width: PAGE_W,
+          height: PAGE_H,
+          size: 'stretch',
+          minWidth: 300,
+          maxWidth: PAGE_W,
+          minHeight: 421,
+          maxHeight: PAGE_H,
+          maxShadowOpacity: .5,
+          showCover: true,
+          mobileScrollSupport: true,
+          usePortrait: true,
+          drawShadow: true,
+          flippingTime: reducedMotion ? 120 : 920,
+          autoSize: true,
+          clickEventForward: true
+        };
+
+    const pageFlip = new St.PageFlip(book, pageFlipOptions);
     pageFlip.loadFromHTML(pages);
+
+    const viewport = document.querySelector('.book-viewport');
+    const scaleWrapper = document.querySelector('.book-scale');
+
+    const scaleBookForMobile = () => {
+      if (!viewport || !scaleWrapper) return;
+
+      if (!window.matchMedia('(max-width: 740px)').matches) {
+        scaleWrapper.style.transform = 'none';
+        viewport.style.height = '';
+        viewport.style.width = '';
+        return;
+      }
+
+      // Dejamos un pequeno margen lateral para que la hoja no toque el borde.
+      const horizontalGutter = 12;
+      const availableWidth = Math.max(280, window.innerWidth - horizontalGutter);
+      const scale = Math.min(1, availableWidth / PAGE_W);
+
+      scaleWrapper.style.transformOrigin = 'top center';
+      scaleWrapper.style.transform = `scale(${scale})`;
+
+      // El transform no modifica el flujo del documento. Por eso el viewport
+      // recibe explicitamente el alto visual final y los controles quedan
+      // inmediatamente debajo de la hoja escalada.
+      viewport.style.height = `${Math.ceil(PAGE_H * scale)}px`;
+      viewport.style.width = '100%';
+    };
+
+    scaleBookForMobile();
 
     const updateStatus = (index) => {
       const i = Math.max(0, Math.min(index, pages.length - 1));
@@ -292,6 +343,10 @@
     pageFlip.on('flip', (event) => updateStatus(event.data));
     prev.addEventListener('click', () => pageFlip.flipPrev());
     next.addEventListener('click', () => pageFlip.flipNext());
+    window.addEventListener('resize', scaleBookForMobile, { passive: true });
+    window.addEventListener('orientationchange', () => {
+      window.setTimeout(scaleBookForMobile, 80);
+    }, { passive: true });
     document.addEventListener('keydown', (event) => {
       const target = event.target;
       if (target && /INPUT|TEXTAREA|SELECT/.test(target.tagName)) return;

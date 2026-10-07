@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="La Cronista DPP: crónica interactiva sobre el debate de ciencia, técnica o arte en Ciencias Económicas.">
+  <meta name="theme-color" content="#242321">
+  <title>La Cronista DPP — 6 de octubre de 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=20261006-3">
+</head>
+<body>
+  <main class="site-shell">
+    <header class="viewer-header">
+      <div class="viewer-brand">
+        <p class="eyebrow">Edición digital interactiva</p>
+        <h1>La Cronista DPP</h1>
+      </div>
+      <p class="viewer-help">Arrastrá una esquina de la hoja o usá las flechas para recorrer la edición.</p>
+    </header>
+
+    <section class="book-stage" aria-label="Periódico interactivo La Cronista DPP">
+      <div id="book" class="book">
+        <article class="page cover" data-density="hard">
+          <div class="page-inner">
+            <header class="masthead">
+              <p>EDICIÓN ESPECIAL · 6 DE OCTUBRE DE 2026</p>
+              <h2>LA CRONISTA DPP</h2>
+              <div class="masthead-rule"><span>CIENCIAS ECONÓMICAS</span><span>CRÓNICA</span></div>
+            </header>
+            <section class="cover-lead">
+              <p class="section-tag">DEBATE ACADÉMICO</p>
+              <h3>¿Ciencia, técnica o arte?</h3>
+              <h4>La batalla por el banquillo en Ciencias Económicas</h4>
+              <p class="deck">Contabilidad, Administración y Economía quedaron frente a frente en dos jornadas de argumentos, testigos, dudas y un veredicto que no cerró del todo la discusión.</p>
+              <figure class="hero-figure">
+                <img src="assets/alegatos-fiscales.webp" alt="Alegatos finales de los fiscales en el aula">
+                <figcaption>Alegatos finales: los fiscales a flor de piel. Foto del autor.</figcaption>
+              </figure>
+              <div class="story-columns two-cols cover-story">
+                <p class="story-p dropcap-first">En estos últimos días, mientras las personas vivían su vida con normalidad, en una universidad se llevó a cabo un juicio que cambió la mirada sobre la Contabilidad, la Economía y la Administración, con una pregunta central: ¿son realmente ciencias o solo pretenden serlo? A continuación se detallará este juicio, pero ¿cómo terminará el veredicto? ¿Estará a favor de los fiscales o de los defensores de cada disciplina?</p>
+                <p class="story-p">En la primera jornada del juicio, el ambiente se sentía cargado de incertidumbre, nervios y preparación para cada defensa, tanto por parte de los defensores de cada una de las disciplinas como de los fiscales. Cada uno estaba en su lugar, terminando de revisar los últimos detalles. Con la presencia de jueces de diferentes disciplinas, comenzó la presentación de cada uno de ellos, determinando que algunos, a pesar de ser profesionales de Ciencias Económicas, tendrían una postura objetiva según el trabajo de cada uno.</p>
+              </div>
+            </section>
+            <footer class="folio"><span>LA CRONISTA DPP</span><span>1</span></footer>
+          </div>
+        </article>
+
+        <article class="page">
+          <div class="page-inner">
+            <header class="running-head"><span>LA CRONISTA DPP</span><span>PRIMERA JORNADA</span></header>
+            <p class="kicker">EL JUICIO COMIENZA</p>
+            <h2 class="article-title">Los fiscales toman la palabra</h2>
+            <div class="story-columns two-cols">
+              <p class="story-p dropcap-first">En esta jornada, ante la mirada de la Doctora Niederle, la Contadora Ibáñez y el Doctor Acosta, comenzó el grupo de fiscales. Se destacaron por la postura y la seguridad al hablar y exponer su punto de vista, sosteniendo que la Contabilidad es una técnica. Para hacerlo, llevaron como testigo a la Contadora Bernaski, quien lo complementó con lo siguiente:</p>
+              <blockquote>“Es un sistema de información de una organización que puede llegar a apoyarse por el conocimiento científico, pero en su esencia es una técnica de métodos, procedimientos para la toma de decisiones”.</blockquote>
+              <p class="story-p">Hasta ese momento, la postura que tomaron parecía clara, pero, a la hora de refutar que la Economía fuera una ciencia, colocaron un video generado con IA de nuestro actual presidente, Javier Milei, determinando que la Economía se basa en la deducción lógica y no es un experimento ni una constatación de datos. ¿Pero esta prueba será lo suficientemente convincente para el jurado? Puede estar manipulada y no reflejar lo que el testigo realmente piensa.</p>
+              <p class="story-p">Luego llegó la cereza del postre. Al momento de hablar de la Administración, determinaron que no es una ciencia, sino una técnica y hasta un arte, ya que, como afirmó una de las fiscales:</p>
+              <blockquote>“No pretende estudiar ni explicar nada, no la consideramos ciencia, más bien es como una estructura, que quiere seguir una planificación para resolver algún objetivo práctico”.</blockquote>
+            </div>
+            <aside class="side-note note-leon integrated-note" aria-label="Nota breve sobre León XIV">
+              <img src="assets/leon-argentina.webp" alt="Pieza gráfica que anuncia la llegada de León a la Argentina del 8 al 11 de noviembre">
+              <div><span class="note-label">ACTUALIDAD · AGENDA</span><h3>Una visita anunciada para noviembre</h3><p>La pieza difundida anticipa la llegada de León a la Argentina entre el 8 y el 11 de noviembre. El anuncio combina los colores nacionales con una imagen de bienvenida.</p></div>
+            </aside>
+            <footer class="folio"><span>2</span><span>Primera jornada</span></footer>
+          </div>
+        </article>
+
+        <article class="page">
+          <div class="page-inner">
+            <header class="running-head"><span>LA CRONISTA DPP</span><span>CONTABILIDAD Y ADMINISTRACIÓN</span></header>
+            <div class="story-columns two-cols">
+              <p class="story-p dropcap-first">Entonces, se da a entender que la Administración tampoco es una técnica, contradiciéndose entre sus propios compañeros. ¿Este error lo podrá usar la defensa o no prestaron atención para poder atacarlo? Para terminar, presentaron a Yanina Latorre como testigo de la Administración. Pero realmente, ¿se puede considerar válida esta prueba? Una profesional que no ejerció ninguno de sus títulos, ¿está capacitada para defender y determinar que no es una ciencia?</p>
+              <p class="story-p">Luego de este grupo, pasó la primera defensa de la Contabilidad, determinando que la definición de técnica quedó en el siglo XIX y con la imagen de que la Contabilidad es medio cuadrada. Definieron a la ciencia como un conocimiento ordenado, lógico y exacto que puede comprobarse con la realidad. A diferencia de los fiscales, utilizaron pruebas documentales, como artículos de revistas y el testimonio del Doctor Mario Bunge:</p>
+              <blockquote>“La contabilidad al analizar organizaciones reales mediante métodos rigurosos y exactos, constituye una disciplina fáctica aplicada y una sociotecnología legítima”.</blockquote>
+              <p class="story-p">Con este testimonio empezaron a remontar su postura, pero llegó el final, en el cual uno de los defensores definió lo siguiente:</p>
+              <blockquote>“No pedimos que se acepte la contabilidad como una ciencia en sí, sino que le pedimos algo más básico: que existan criterios temáticos coherentes, que se evalúe la contabilidad por sus métodos, sus problemas, sus teorías, sus investigaciones y su capacidad de producir conocimiento. Y, sobre todo, que no se le exijan requisitos universales que para las demás ciencias”.</blockquote>
+              <p class="story-p">¿Este error puede ser usado por los fiscales para poder ganar su postura?</p>
+            </div>
+            <figure class="feature-photo mid-photo compact-photo"><img src="assets/fiscales-defensores.webp" alt="Vista general del aula con fiscales y defensores del juicio"><figcaption>Fiscales y defensores del juicio. Foto del autor.</figcaption></figure>
+            <aside class="ad-morat integrated-note" aria-label="Publicidad de Morat YEN World Tour">
+              <div class="ad-head"><span>PUBLICIDAD</span><strong>MORAT · YEN WORLD TOUR</strong></div>
+              <img src="assets/morat-yen.webp" alt="Publicidad de Morat YEN World Tour en Buenos Aires, Movistar Arena">
+              <div class="ad-copy"><h3>Morat lleva YEN World Tour a Buenos Aires</h3><p>La propuesta promocional presenta a la banda en una nueva etapa de gira y señala al Movistar Arena como escenario porteño. Una cita musical que se suma a la agenda de grandes espectáculos.</p></div>
+            </aside>
+            <footer class="folio"><span>3</span><span>La defensa responde</span></footer>
+          </div>
+        </article>
+
+        <article class="page">
+          <div class="page-inner">
+            <header class="running-head"><span>LA CRONISTA DPP</span><span>DEFENSA Y ECONOMÍA</span></header>
+            <p class="kicker">ARGUMENTOS Y UN GIRO INESPERADO</p>
+            <div class="story-columns two-cols">
+              <p class="story-p dropcap-first">Luego siguió el grupo de la defensa de la Administración, determinando que hay un objeto de estudio concreto, que genera hipótesis con base en la persona humana y su desarrollo dentro de la organización, y destacando que va evolucionando, al igual que las organizaciones. En su defensa se presentó una entrevista realizada a un profesor de la facultad, pero no era un audio de él, sino tan solo sus respuestas. Él considera a la Administración una ciencia y un arte. ¿Pero era necesario un audio de él? ¿Será una manera de defender su postura? Quedaron algunas dudas al respecto, pero con eso concluyeron.</p>
+              <p class="story-p">Pasaron otros fiscales, quienes se centraron, más que nada, en colocar su postura en la definición de ciencia y de los diferentes paradigmas. En el caso de la Contabilidad se volvió a citar a Fowler Newton, quien sostiene que es una disciplina técnica. Luego se determinó que la Administración correspondía más al campo de la sociotecnología y que la utilidad de sus recomendaciones debe distinguirse de su justificación científica. Pero lo que más llamó la atención fue la seguridad de la fiscal, porque es administradora y está convencida de que la Administración no es una ciencia. Finalizaron con la Economía, definiéndola como una disciplina.</p>
+              <p class="story-p">Llegó el momento de los defensores de la Economía, quienes dieron un giro inesperado. En vez de defender su postura como el resto, hicieron una obra de teatro que fue polémica para muchos de los fiscales. Se basó en que varios epistemólogos y personajes que marcaron la Economía discutían si era o no una ciencia. Finalizaron determinando que sí lo era, pero fue demasiado confuso, porque los alegatos de quienes estaban en contra eran más convincentes que los de quienes la defendían. ¿Podrá ser usado en contra o a favor de los fiscales? Esta pregunta fue contestada en la otra jornada.</p>
+            </div>
+            <figure class="feature-photo defenders-photo compact-photo"><img src="assets/defensores-alegatos.webp" alt="Defensores durante los alegatos finales"><figcaption>Defensores en los alegatos finales. Foto del autor.</figcaption></figure>
+            <footer class="folio"><span>4</span><span>Economía en escena</span></footer>
+          </div>
+        </article>
+
+        <article class="page">
+          <div class="page-inner verdict-page">
+            <header class="running-head"><span>LA CRONISTA DPP</span><span>SEGUNDA JORNADA · VEREDICTO</span></header>
+            <p class="kicker">MIÉRCOLES · ALEGATOS FINALES</p>
+            <h2 class="section-title">La confianza cambia de lado</h2>
+            <div class="story-columns two-cols final-story">
+              <p class="story-p dropcap-first">El día miércoles, el ambiente era tenso, pero más para la defensa, que no se encontraba en una buena posición. La confianza estaba más del lado de los fiscales. Sin embargo, con el primer grupo de fiscales, fue decayendo esa confianza, ya que mostraban dificultad a la hora de explicar o definir los objetivos para defender su postura, basándose en una posición más teórica para cada una de las áreas. Luego siguió el último grupo de defensa, para dar lugar a los alegatos finales.</p>
+              <p class="story-p">Comenzaron los fiscales, que tenían una posición bastante clara con la Administración y la Contabilidad, porque la defensa no podía retrucar; es más, un defensor de la Administración terminó dándole la razón al fiscal en que no es una ciencia. Pero el punto débil de los fiscales, a pesar de tener todas las armas para ganar, fue la Economía, porque no estaban preparados para ese debate.</p>
+              <p class="story-p">Después de unas cuantas idas y vueltas, el jurado deliberó. Se vivió un momento de incertidumbre: ¿serán suficientes los argumentos que dieron? El juez tomó la palabra y determinó que la Economía, por la defensa que tuvo, se considera una ciencia, mientras que a la Administración y a la Contabilidad se las considera técnicas.</p>
+              <p class="story-p">Finalizadas las dos largas jornadas, en las que la Economía, la Contabilidad y la Administración se pusieron en tela de juicio para determinar si son o no ciencia, a puro enfrentamiento de diferentes posturas, opiniones y testigos, se logró este resultado. Pero sigue quedando una duda, presente en este debate académico: ¿serán o no una ciencia?</p>
+            </div>
+            <div class="final-grid">
+              <aside class="sports-note integrated-note" aria-label="Nota breve sobre Lionel Messi"><img src="assets/messi-despedida.webp" alt="Pieza gráfica sobre la despedida de Messi en Eliminatorias"><div><span class="note-label">DEPORTES</span><h3>La despedida más emotiva</h3><p>La pieza deportiva pone el foco en Lionel Messi y presenta su último adiós en Eliminatorias como un momento cargado de emoción para la Selección Argentina.</p></div></aside>
+              <section class="verdict-box" aria-label="Resultado del veredicto"><span>EL VEREDICTO</span><div><strong>ECONOMÍA</strong><b>CIENCIA</b></div><div><strong>ADMINISTRACIÓN</strong><b>TÉCNICA</b></div><div><strong>CONTABILIDAD</strong><b>TÉCNICA</b></div></section>
+            </div>
+            <figure class="feature-photo judges-photo final-photo"><img src="assets/jueces-deliberando.webp" alt="Jueces deliberando durante el juicio académico"><figcaption>Jueces deliberando. Foto del CEA.</figcaption></figure>
+            <p class="closing-question">¿Serán o no una ciencia?</p>
+            <footer class="folio"><span>5</span><span>Fin de la crónica</span></footer>
+          </div>
+        </article>
+
+        <article class="page back-cover" data-density="hard">
+          <div class="page-inner back-cover-inner">
+            <p class="back-kicker">EDICIÓN ESPECIAL</p><h2>LA CRONISTA<br>DPP</h2><div class="back-rule"></div><p class="back-date">6 · OCTUBRE · 2026</p><p class="back-copy">Una crónica universitaria sobre argumentos, contradicciones y preguntas que sobrevivieron al veredicto.</p><div class="back-seal">DPP</div><p class="back-instruction">Deslizá hacia la izquierda para volver a recorrer la edición.</p><footer class="folio"><span>LA CRONISTA DPP</span><span>6</span></footer>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <nav class="controls" aria-label="Navegación del periódico">
+      <button id="prevPage" type="button" aria-label="Página anterior">← Anterior</button>
+      <div class="page-status" aria-live="polite"><span id="pageCurrent">1</span> / <span id="pageTotal">6</span></div>
+      <button id="nextPage" type="button" aria-label="Página siguiente">Siguiente →</button>
+    </nav>
+    <p class="gesture-tip">En celular podés arrastrar la hoja con el dedo.</p>
+    <p id="loadError" class="load-error" hidden>El efecto de hojas no pudo cargarse. El contenido sigue disponible más abajo.</p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <script src="js/app.js?v=20261006-3"></script>
+</body>
+</html>

@@ -313,3 +313,77 @@ figcaption{font-size:.9405rem;line-height:1.20}
     column-gap: 0 !important;
   }
 }
+
+/* =========================================================
+   v13-mobile - misma maqueta 520x730, escalada visualmente
+   SOLO en mobile. Desktop conserva el comportamiento v12.
+   ========================================================= */
+.book-viewport{
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  width:100%;
+  overflow:visible;
+}
+.book-scale{
+  width:520px;
+  height:730px;
+  flex:0 0 520px;
+  transform-origin:top center;
+}
+
+@media (max-width:740px){
+  /* PageFlip trabaja sobre una hoja real de 520x730 y este wrapper la
+     reduce como una fotografia. El texto ya no vuelve a hacer wrap. */
+  .book-stage{
+    display:block;
+    min-height:0;
+    padding:4px 0 8px;
+    overflow:visible;
+  }
+  .book-viewport{
+    position:relative;
+    width:100%;
+    margin:0 auto;
+    overflow:visible;
+  }
+  .book-scale{
+    position:absolute;
+    top:0;
+    left:50%;
+    width:520px;
+    height:730px;
+    margin-left:-260px;
+    flex:none;
+    transform-origin:top center;
+  }
+  .book{
+    width:520px !important;
+    height:730px !important;
+    max-width:none !important;
+    max-height:none !important;
+    margin:0 !important;
+  }
+
+  /* No modificar la geometria editorial interna en mobile.
+     La misma hoja de desktop se escala completa. */
+  .page{
+    width:520px;
+    height:730px;
+  }
+
+  /* Los botones quedan FUERA del scale y conservan buen tamano tactil. */
+  .controls{
+    position:relative;
+    z-index:20;
+    margin-top:18px;
+    gap:10px;
+  }
+  .controls button{
+    min-height:48px;
+    padding:10px 18px;
+    font-size:.92rem;
+  }
+  .page-status{font-size:.86rem}
+  .gesture-tip{margin-top:8px;font-size:.72rem}
+}
